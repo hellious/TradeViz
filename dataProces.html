@@ -434,14 +434,17 @@ z-index: 99;">
 
 
             }
+                
+            
 
             function drawbargrph(xlables, barlabelp, bardata_one) {
+                
                 var bg_color = [];
                 for(var i=0; i<bardata_one.length;i++){
                     bg_color.push("rgba(4, 207, 194,0.6)");
                 }
                 var ctx = document.getElementById('m').getContext('2d');
-                var myChart = new Chart(ctx, {
+                myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: xlables,
@@ -492,13 +495,7 @@ z-index: 99;">
             </script>
             <script type="text/javascript">
             function drawPiegrph(labels, data, alfa) {
-                var ctx = document.getElementById("piechart").getContext('2d');
-                var piechart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels, //["M", "T", "W", "T", "F", "S", "S"],
-                        datasets: [{
-                            backgroundColor: [
+                var colors = [
                                 "rgb(165, 0, 38)",
                                 "rgb(215, 48, 39)",
                                 "rgb(244, 109, 67)",
@@ -510,7 +507,18 @@ z-index: 99;">
                                 "rgb(116, 173, 209)",
                                 "rgb(69, 117, 180)",
                                 "rgb(49, 54, 149)"
-                            ],
+                            ];
+                var bg_color = [];
+                for(var i=0; i<labels.length ; i++){
+                    bg_color.push(colors[i]);
+                }
+                var ctx = document.getElementById("piechart").getContext('2d');
+                var piechart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels, //["M", "T", "W", "T", "F", "S", "S"],
+                        datasets: [{
+                            backgroundColor: bg_color,
                             data: data // [12, 19, 3, 17, 28, 24, 7]
                         }]
 

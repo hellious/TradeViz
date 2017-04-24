@@ -102,8 +102,8 @@ function displayJSON(viewdata) {
                 console.log(array);
                 alert(allYrs+" val "+yearsvalue);
                 if(allYrs.length == 0){
-                allYrs = year_arr;
-                yearsvalue = [0,0,0,0,0];   
+                    allYrs = year_arr;
+                    yearsvalue = [0,0,0,0,0];   
                 }
                 var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
                 var selectedCommodity = input.commodity;
@@ -139,6 +139,10 @@ function displayJSON(viewdata) {
                 console.log('generating globe for case3');
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
+                if(countryCommodities.length==0){
+                    alert(" no commodity is traded between the countries");
+                    return;
+                }
                 drawPiegrph(countryCommodities, countryValues, 1);
                 // document.getElementById("m").style.visibility = "hidden";
 
@@ -323,6 +327,10 @@ function displayJSON(viewdata) {
                 console.log('generating globe for case3');
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
+                if(countryCommodities.length==0){
+                    alert(" no commodity is traded between the countries");
+                    return;
+                }
                 drawPiegrph(countryCommodities, countryValues, 1);
                 //alert(array.length);
 
