@@ -372,6 +372,8 @@ function displayJSON(viewdata) {
                 console.log("case 5");
                 var countrylist = ["brazil", "canada", "china", "france", "japan", "india", "mexico", "russia", "uk", "us"];
                 var array_spiral = [];
+                var max = 0;
+                var min = 10000000;
                 for (var cont = 0; cont < countrylist.length; cont++) {
 
                     var key1 = countrylist[cont] + "2011";
@@ -394,11 +396,18 @@ function displayJSON(viewdata) {
                                 val = val + data[arr[key]][i].val;
                             }
                         }
+                        if(val< min){
+                            min = val;
+                        }
+                        if(val > max){
+                            max = val;
+                        }
                         array_spiral.push(val);
                     }
 
                 }
-                drawSpiralHeatMap(array_spiral);
+                alert(array_spiral);
+                drawSpiralHeatMap(array_spiral,max,min);
 
                 // ==============
             }

@@ -207,8 +207,8 @@ z-index: 99;">
  -->
         </div>
         <div class="container">
-            <canvas class="col-md-3" style="max-height: 40rem;max-width: 40rem;margin-left: -10rem;margin-top:11rem; z-index:9" id="m"></canvas>
-            <canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -30rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>
+            <canvas class="col-md-3" style="max-height: 40rem;max-width: 40rem;margin-left: -5rem;margin-top:11rem; z-index:9" id="m"></canvas>
+            <canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>
             <canvas class="col-md-3 pull-right" style="max-height: 20rem;max-width: 20rem;margin-left: 10rem;margin-top:11rem; z-index:9" id="doughnut"></canvas>
         </div>
         <!-- <div id="m" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
@@ -326,12 +326,13 @@ z-index: 99;">
                                             height: 10rem;" zoom-in="">
                     <style>
                     #chart svg {
-                        height: 500px;
-                        width: 500px;
+                        height: 600px;
+                        width: 600px;
+                        padding-left: 25px;
                         font-size: 15px;
                         font-family: 'Roboto';
-                        fill: green;
-                    }
+                        fill : rgba(23, 180, 194, 0.9); 
+                    } 
                     </style>
                     <div id="chart svg">
                         <svg>
@@ -399,10 +400,9 @@ z-index: 99;">
             </script>
             <script type="text/javascript" src="geo-explorer.js"></script>
             <script type="text/javascript">
-            function drawSpiralHeatMap(historyData) {
-                alert("inside heat map call");
-
-                /* Label data */
+            function drawSpiralHeatMap(historyData,max,min) {
+                alert("max and mind : "+max+" , "+min);
+                
                 var countries = ["brazil", "canada", "china", "france", "japan", "india", "mexico", "russia", "uk", "us"];
                 var years = [];
                 for (var i = 2011; i < 2016; i++)
@@ -410,13 +410,13 @@ z-index: 99;">
 
                 /* Create the chart */
                 var chart = circularHeatChart()
-                    .segmentHeight(10)
-                    .innerRadius(16)
-                    .numSegments(5)
-                    .domain([0, 50000000])
+                    .segmentHeight(17)
+                    .innerRadius(15)
+                    .numSegments(10)
+                    .domain([min, max])
                     .range(['white', 'blue'])
-                    .segmentLabels(years)
-                    .radialLabels(countries);
+                    .segmentLabels(countries)
+                    .radialLabels(years);
 
                 d3.select('#chart svg')
                     .selectAll('svg')
@@ -496,7 +496,6 @@ z-index: 99;">
             <script type="text/javascript">
             function drawPiegrph(labels, data, alfa) {
                 var colors = [
-                                "rgb(165, 0, 38)",
                                 "rgb(215, 48, 39)",
                                 "rgb(244, 109, 67)",
                                 "rgb(253, 174, 97)",
@@ -526,7 +525,7 @@ z-index: 99;">
                     },
                     options: {
                         legend: {
-                            display: false
+                            display: true
                         },
                         tooltips: {
                             enabled: true
