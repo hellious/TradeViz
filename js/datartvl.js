@@ -61,7 +61,7 @@ function displayJSON(viewdata) {
                 console.log(array);
                 var selectedCommodity = input.commodity;
                 var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
-                drawbargrph(countries,input.commodity, countriesValue);
+                drawbargrph(countries,input.commodity, countriesValue,"Export Partners for "+input.reporter);
                 console.log('generating globe for case1');
                 imade(selectionData.selectedYear, [input.reporter], [selectedCommodity]);
                 //imade(selectionData.selectedYear, [input.reporter], [titleCase(input.commodity)], [titleCase(input.commodity)]);
@@ -111,7 +111,7 @@ function displayJSON(viewdata) {
                 imade(selectionData.selectedYear, [input.reporter], [selectedCommodity], allCommodities);
                 // selectedCountry = input.reporter;
                 // console.log(selectedCountry.summary.imported.total);
-                drawbargrph(allYrs, selectedCommodity, yearsvalue);
+                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Export Trends "+input.reporter+"->"+input.partner);
                 // document.getElementById("piechart").style.visibility = "hidden";
 
             } else if (input.commodity == "" && input.reporter != "" && input.partner != "") {
@@ -253,7 +253,7 @@ function displayJSON(viewdata) {
                     }
                 }
                 console.log(titleCase(input.commodity));
-                drawbargrph(countries,input.commodity, countriesValue);
+                drawbargrph(countries,input.commodity, countriesValue,"Import Partners for "+input.reporter);
                 console.log('generating globe for case1');
                 imade(selectionData.selectedYear, [input.reporter], [titleCase(input.commodity)], [titleCase(input.commodity)]);
             } else if (input.partner != "" && input.reporter != "" && input.commodity != "") { // case two : partner is selected
@@ -298,7 +298,7 @@ function displayJSON(viewdata) {
                 imade(selectionData.selectedYear, [input.reporter], [selectedCommodity], allCommodities);
                 // selectedCountry = input.reporter;
                 // console.log(selectedCountry.summary.imported.total);
-                drawbargrph(allYrs, selectedCommodity, yearsvalue);
+                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Imports Trends "+input.reporter+" -> "+input.partner);
                 // document.getElementById("piechart").style.visibility = "hidden";
 
 

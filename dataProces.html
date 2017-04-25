@@ -437,7 +437,7 @@ z-index: 99;">
                 
             
 
-            function drawbargrph(xlables, barlabelp, bardata_one) {
+            function drawbargrph(xlables, barlabelp, bardata_one,labels) {
                 
                 var bg_color = [];
                 for(var i=0; i<bardata_one.length;i++){
@@ -459,7 +459,17 @@ z-index: 99;">
                             yAxes: [{
                                 ticks: {
                                     beginAtZero:true
-                                }
+                                },
+                                scaleLabel: {
+                                display: true,
+                                labelString: 'NetValue'
+                              }
+                            }],
+                            xAxes: [{
+                                scaleLabel: {
+                                display: true,
+                                labelString: labels
+                              }
                             }]
                         }
                     }
