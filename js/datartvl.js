@@ -101,7 +101,7 @@ function displayJSON(viewdata) {
                     }
                 }
                 console.log(array);
-                alert(allYrs+" val "+yearsvalue);
+               // alert(allYrs+" val "+yearsvalue);
                 if(allYrs.length == 0){
                     allYrs = year_arr;
                     yearsvalue = [0,0,0,0,0];   
@@ -144,7 +144,7 @@ function displayJSON(viewdata) {
                     alert(" no commodity is traded between the countries");
                     return;
                 }
-                alert(" commodties : "+countryCommodities+"  value "+countryValues);
+               // alert(" commodties : "+countryCommodities+"  value "+countryValues);
                 drawPiegrph(countryCommodities, countryValues, 1);
                 // document.getElementById("m").style.visibility = "hidden";
 
@@ -341,7 +341,7 @@ function displayJSON(viewdata) {
                 console.log("case 4");
                 var key = input.reporter + "" + yr_val;
                 array = [];
-                arr_k = {};
+                var arr_k = {};
                 var commodities = [];
                 var commoditiesValues = [];
                 for (var i = 0; i < data[key].length; i++) {

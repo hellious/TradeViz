@@ -206,7 +206,7 @@ z-index: 99;">
             <!-- <h2>Loading...</h2>
  -->
         </div>
-        <div class="container">
+        <div id="mainCont" class="container">
             <canvas class="col-md-3" style="max-height: 40rem;max-width: 40rem;margin-left: -5rem;margin-top:11rem; z-index:9" id="m"></canvas>
             <canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>
             <canvas class="col-md-3 pull-right" style="max-height: 20rem;max-width: 20rem;margin-left: 10rem;margin-top:11rem; z-index:9" id="doughnut"></canvas>
@@ -385,6 +385,8 @@ z-index: 99;">
         <div class="globe" style="max-height: 10rem; max-width: 10rem;">
             <script src="js/main.js" type="text/javascript"></script>
             <script type="text/javascript">
+            var chart_com ;
+            var chart_don ;
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-7963116-1']);
             _gaq.push(['_setDomainName', 'chromeexperiments.com']);
@@ -401,7 +403,7 @@ z-index: 99;">
             <script type="text/javascript" src="geo-explorer.js"></script>
             <script type="text/javascript">
             function drawSpiralHeatMap(historyData,max,min) {
-                alert("max and mind : "+max+" , "+min);
+               // alert("max and mind : "+max+" , "+min);
                 
                 var countries = ["brazil", "canada", "china", "france", "japan", "india", "mexico", "russia", "uk", "us"];
                 var years = [];
@@ -424,7 +426,7 @@ z-index: 99;">
                     .enter()
                     .append('svg')
                     .call(chart);
-                alert("going out of heat map ");
+               // alert("going out of heat map ");
                 //                    d3.select("#chart svg").select("all").on('mouseover', function() {
                 //                        var d = d3.select(this).data()[0];
                 //                        alert(" d: "+d.value);
@@ -439,12 +441,16 @@ z-index: 99;">
 
             function drawbargrph(xlables, barlabelp, bardata_one,labels) {
                 
+                //alert("old chart "+ chart_com);
+                if(chart_com != null){
+                    chart_com.destroy();
+                }
                 var bg_color = [];
                 for(var i=0; i<bardata_one.length;i++){
                     bg_color.push("rgba(4, 207, 194,0.6)");
                 }
                 var ctx = document.getElementById('m').getContext('2d');
-                myChart = new Chart(ctx, {
+                chart_com = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: xlables,
@@ -477,8 +483,11 @@ z-index: 99;">
                 });
                 console.log('drawing graph');
                 //console.log(input.commodityinput.commodity);
+                if(chart_don != null){
+                    chart_don.destroy();
+                }
                 var ctx2 = document.getElementById("doughnut").getContext('2d');
-                var myChart2 = new Chart(ctx2, {
+                chart_don = new Chart(ctx2, {
                     type: 'doughnut',
                     data: {
                         labels: ["Imports", "Exports"],
@@ -505,6 +514,15 @@ z-index: 99;">
             </script>
             <script type="text/javascript">
             function drawPiegrph(labels, data, alfa) {
+//                var pieChartContent = document.getElementById('mainCont');
+//                pieChartContent.innerHTML = '&nbsp;';
+//                $('#mainCont').append('<canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>');
+                //alert("old chart "+ chart_com);
+                if(chart_com != null){
+                    chart_com.destroy();
+                }
+                var ctx = $("#piechart").get(0).getContext("2d");
+                
                 var colors = [
                                 "rgb(215, 48, 39)",
                                 "rgb(244, 109, 67)",
@@ -522,7 +540,7 @@ z-index: 99;">
                     bg_color.push(colors[i]);
                 }
                 var ctx = document.getElementById("piechart").getContext('2d');
-                var piechart = new Chart(ctx, {
+                chart_com = new Chart(ctx, {
                     type: 'pie',
                     data: {
                         labels: labels, //["M", "T", "W", "T", "F", "S", "S"],
