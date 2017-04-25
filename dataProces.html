@@ -433,9 +433,9 @@ z-index: 99;">
                 
             
 
-            function drawbargrph(xlables, barlabelp, bardata_one,labels) {
+            function drawbargrph(xlables, barlabelp, bardata_one,labels,val1,val2) {
                 
-                //alert("old chart "+ chart_com);
+                //alert("old chart "+ val1+" val2"+val2);
                 if(chart_com != null){
                     chart_com.destroy();
                 }
@@ -492,7 +492,7 @@ z-index: 99;">
 
 
                             ],
-                            data: [12, 19],
+                            data: [val1, val2],
                             borderWidth: [0, 0]
                         }]
 
