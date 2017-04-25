@@ -24,7 +24,7 @@
 
 <body onload="start()" id="dataviz" style="background:url('4.jpg');overflow:hidden;position:fixed;">
     <div id="app-toolbar" style="background: rgba(0,0,0,.75);
-box-shadow: 0 1px 5px rgba(0,0,0,.5);
+box-shadow: 0 1px 5px rgba(0,0,0,0);
 color: #fff;
 padding-bottom: 3px;
 max-height: 6rem;
@@ -38,7 +38,7 @@ position: fixed;
 top: 0px;
 width: 100%;
 z-index: 99;">
-        <h3 class="pull-right">UN Commodity <span style="color: #1da0e8">TradeFlow</span></h3>
+        <h3 class="pull-right">Global Trade<span style="color: #1da0e8"> Data Visualization</span></h3>
         <!-- <form name="myForm" action="" method="post">
             Name:
             <input type="text" name="fname">
@@ -46,25 +46,25 @@ z-index: 99;">
         </form>-->
         <form style="margin-top: 0rem;" action="" name="myForm2" onsubmit="return false;" method="post">
             <div class="row tools">
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="tool radius" style="padding-left: 2rem;">
                         <div class=" noPointer" id="hudButtons">
                             <!--    <h5>Direction</h5> -->
                             <!--<input type="name" name="country" class="countryTextInput form-control pointer noMapDrag" style="background: black;color: #1da0e8;" value="UNITED STATES">-->
                             <select onchange="displayJSON();" id="direction" class="form-control" style="border-color:#1da0e8;border-style: solid;border-width: 1px;background: black;color: #1da0e8;">
-                                <option value="">Direction</option>
+                                <option value="">Select Trade Direction</option>
                                 <option value="Imports">Imports</option>
                                 <option value="Exports">Exports</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="tool coordinates">
                         <!--   <h5>Commodity</h5> -->
                         <!--<input type="name" step="any" style="background: black;color: #1da0e8;" id="coordinates-lng" name="country2" class="form-control" placeholder="Commodity">-->
                         <select id="commodity" class="form-control" style="background: black;color: #1da0e8;border-color:#1da0e8;border-style: solid;border-width: 1px;">
-                            <option value="">Commodity</option>
+                            <option value="">Select Commodity</option>
                             <option value="coffeee">Coffee</option>
                             <option value="copper">Copper</option>
                             <option value="corn">Corn</option>
@@ -79,13 +79,13 @@ z-index: 99;">
                         <!--  <input type="number" step="any" id="coordinates-lat" class="form-control" placeholder="Latitude"> -->
                     </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="tool coordinates">
                         <!-- <h5>Reporter</h5>
  -->
                         <!--<input type="name" step="any" style="background: black;color: #1da0e8;" id="coordinates-lng" class="form-control" placeholder="Commodity">-->
                         <select id="reporter" class="form-control" style="background: black;color: #1da0e8;border-color:#1da0e8;border-style: solid;border-width: 1px;">
-                            <option value="">Reporter</option>
+                            <option value="">Select Reporter</option>
                             <option value="brazil">Brazil</option>
                             <option value="canada">Canada</option>
                             <option value="china">China</option>
@@ -99,13 +99,13 @@ z-index: 99;">
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="tool timeframe">
                         <!-- <h5>Partner</h5>
  -->
                         <!--<input type="date" id="timeframe-start" style="background: black;color: #1da0e8;" class="form-control" placeholder="mm/dd/yyyy">-->
                         <select id="partner" class="form-control" style="background: black;color: #1da0e8;border-color:#1da0e8;border-style: solid;border-width: 1px;" placeholder="Partner">
-                            <option value="">Partner</option>
+                            <option value="">Select Partner</option>
                             <option value="brazil">Brazil</option>
                             <option value="canada">Canada</option>
                             <option value="china">China</option>
@@ -119,18 +119,12 @@ z-index: 99;">
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-1">
+                <div class="col-sm-1" style="max-width:10rem;">
                     <div class="tool timeframe">
-                        <span id="countryText" class="country"></span>
-                        <input style="margin-top: 0rem;border-color:#1da0e8;border-style: solid;border-width: 1px; min-height: 3rem;min-width: 5rem;background-color: black;color: #1da0e8;" onclick="displayJSON();" type="button" id="timeframe-end" class="  " placeholder="Submit" value="Submit">
+                        <input style="margin-top: 0rem;border-color:#1da0e8;border-style: solid;border-width: 1px; min-height: 3rem;min-width: 5rem;background-color: black;color: #1da0e8;" onclick="displayJSON();" type="button" id="timeframe-end" class=" form-control  " placeholder="Submit" value="Submit">
                     </div>
                 </div>
-                <div class="col-sm-1">
-                    <div class="tool">
-                        <!-- <h5>Commodity Trade Flow </h5>
-                        <i type="button" id="refresh" class="btn fa fa-refresh fa-3"></i> -->
-                    </div>
-                </div>
+                
                 <!-- <i type="button" style="cursor: pointer; color: white;" class="fa fa-search-plus fa-3 zoomBtn zoomInBtn armsBtn pointer noMapDrag" aria-hidden="true"></i>
 <i type="button" style="cursor: pointer; color: white;" class="fa fa-search-minus fa-3 zoomBtn zoomOutBtn armsBtn pointer noMapDrag" aria-hidden="true"></i>
  -->
@@ -222,7 +216,7 @@ z-index: 99;">
                                         margin-bottom: 24px;
                                         color: white;
                                         margin-left: -1rem;
-                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0);
                                             height: 20rem;" zoom-in="">
                 <style>
                 #chart svg {
@@ -264,7 +258,7 @@ z-index: 99;">
                                         margin-bottom: 24px;
                                         margin-top: -8rem;
                                         margin-left: 6rem;
-                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0);
                                             height: 50rem;" zoom-in="">
                             <!-- <form class="pull-right" action="">
     <input type="checkbox" name="Gold" value="Gold"><img style="max-height: 20px;" src="gold.png" alt="some img">
@@ -314,7 +308,7 @@ z-index: 99;">
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12">
-                <div class="panel medium-panel col-sm-12 col-md-12 animated zoomIn" style="color:white;background-color: #ffffff10;
+                <div class="panel medium-panel col-sm-12 col-md-12 animated zoomIn" style="color:white;background-color: rgba(0, 0, 0, 0);
                                 z-index: -3;
                                         border: none;
                                        margin-top: 20rem;
@@ -322,7 +316,7 @@ z-index: 99;">
                                         position: relative;
                                         margin-bottom: 24px;
                                         margin-left: -1rem;
-                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+                                        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0);
                                             height: 10rem;" zoom-in="">
                     <style>
                     #chart svg {
@@ -572,7 +566,7 @@ layCountries noPointer">
             </h1>
 </div>
  -->
-        <div id="history" class=" noPointer">
+        <div id="history" class=" noPointer" style="background-color:rgb(0,0,0,.5);border-top-left-radius: 2em ;border-top-right-radius: 2em;">
             <!-- <div class="graph"> -->
             <!--      <div class="close"></div>
                 <div class="labels">
@@ -620,7 +614,7 @@ layCountries noPointer">
     background: black;
     color: white;
     min-height: 2rem;
-    max-width: 10rem;
+    width: 100%;
 }
 
 canvas {
