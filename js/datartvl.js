@@ -140,10 +140,10 @@ function grpahCreation(val1,val2){
                 console.log('generating globe for case3');
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
-                if(countryCommodities.length==0){
-                    alert(" no commodity is traded between the countries");
-                    return;
-                }
+//                if(countryCommodities.length==0){
+//                    alert(" no commodity is traded between the countries");
+//                    return;
+//                }
                // alert(" commodties : "+countryCommodities+"  value "+countryValues);
                 drawPiegrph(countryCommodities, countryValues, 1);
                 // document.getElementById("m").style.visibility = "hidden";
@@ -222,7 +222,7 @@ function grpahCreation(val1,val2){
             }
             console.log("year : " + selectionData.selectedYear);
             console.log(commodities);
-
+            var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
             imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
             //alert(array.length);
             return array;
@@ -330,10 +330,10 @@ function grpahCreation(val1,val2){
                 console.log('generating globe for case3');
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
-                if(countryCommodities.length==0){
-                    alert(" no commodity is traded between the countries");
-                    return;
-                }
+//                if(countryCommodities.length==0){
+//                    alert(" no commodity is traded between the countries");
+//                    return;
+//                }
                 drawPiegrph(countryCommodities, countryValues, 1);
                 //alert(array.length);
 
@@ -417,7 +417,7 @@ function grpahCreation(val1,val2){
             }
             console.log("year : " + selectionData.selectedYear);
             console.log(array);
-
+            var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
             imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
             //alert(array.length);
             return array;
