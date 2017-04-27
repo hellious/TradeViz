@@ -478,7 +478,8 @@ z-index: 99;">
                 chart_don = new Chart(ctx2, {
                     type: 'doughnut',
                     data: {
-                        labels: ["Imports", "Exports"],
+                        
+                        labels: ["Total Imports", "Total Exports"],
                         datasets: [{
                             backgroundColor: [
                                 "rgba(100, 207, 194,0.6)",
@@ -493,7 +494,11 @@ z-index: 99;">
                     },
                     options: {
 
-                        cutoutPercentage: 50
+                        cutoutPercentage: 50,
+                        title: {
+                                    display: true,
+                                    text: 'Total Trade Distribution for '+document.getElementById("reporter").value+" in "+selectionData.selectedYear
+                                }
 
                     }
                 });
