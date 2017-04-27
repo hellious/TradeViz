@@ -11,6 +11,10 @@ function displayFormData() {
     inObj.commodity = document.getElementById("commodity").value;
     inObj.reporter = document.getElementById("reporter").value;
     inObj.partner = document.getElementById("partner").value;
+    if(inObj.reporter == inObj.partner){
+        alert("Please select different countries");
+        return;
+    }
 
     var msg = "Direction: " + document.getElementById("direction").value + "\nCommodity: " + document.getElementById("commodity").value + "\n Importer: " + document.getElementById("reporter").value + "\n Exporter: " + document.getElementById("partner").value;
 
@@ -25,6 +29,7 @@ function displayFormData() {
 function grpahCreation(val1,val2){
     
     var input = displayFormData();
+    
     //alert("input country "+input.reporter+"  partner "+input.partner);
     //alert(val1+" graph "+val2);
     //var yr_val = "2013"; //selectionData.selectedYear;
