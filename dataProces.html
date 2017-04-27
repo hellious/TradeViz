@@ -456,12 +456,16 @@ z-index: 99;">
                                 },
                                 scaleLabel: {
                                 display: true,
+                                fontSize: 15,
+                                fontColor: "rgb(255, 255, 255,0.6)",
                                 labelString: 'NetValue'
                               }
                             }],
                             xAxes: [{
                                 scaleLabel: {
                                 display: true,
+                                fontSize: 15,
+                                fontColor: "rgb(255, 255, 255,0.6)",
                                 labelString: labels
                               }
                             }]
@@ -482,8 +486,8 @@ z-index: 99;">
                         labels: ["Total Imports", "Total Exports"],
                         datasets: [{
                             backgroundColor: [
-                                "rgba(100, 207, 194,0.6)",
-                                "rgba(18, 56, 89,0.6)"
+                                "rgb(95, 198, 19,0.6)",
+                                "rgb(234, 134, 21,0.6)"
 
 
                             ],
@@ -497,7 +501,9 @@ z-index: 99;">
                         cutoutPercentage: 50,
                         title: {
                                     display: true,
-                                    text: 'Total Trade Distribution for '+document.getElementById("reporter").value+" in "+selectionData.selectedYear
+                                    fontSize: 20,
+                                    fontColor: "rgb(255, 255, 255,0.6)",
+                                    text: 'Trade Distribution for '+document.getElementById("reporter").value+" in "+selectionData.selectedYear
                                 }
 
                     }
