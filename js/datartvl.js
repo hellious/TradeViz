@@ -25,6 +25,7 @@ function displayFormData() {
 function grpahCreation(val1,val2){
     
     var input = displayFormData();
+    //alert("input country "+input.reporter+"  partner "+input.partner);
     //alert(val1+" graph "+val2);
     //var yr_val = "2013"; //selectionData.selectedYear;
     var yr_val = selectionData.selectedYear;
@@ -109,10 +110,11 @@ function grpahCreation(val1,val2){
                 var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
                 var selectedCommodity = input.commodity;
                 console.log('generating globe for case2');
+                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Export Trends "+input.reporter+"->"+input.partner,val1,val2);
                 imade(selectionData.selectedYear, [input.reporter], [selectedCommodity], allCommodities);
                 // selectedCountry = input.reporter;
                 // console.log(selectedCountry.summary.imported.total);
-                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Export Trends "+input.reporter+"->"+input.partner,val1,val2);
+                
                 // document.getElementById("piechart").style.visibility = "hidden";
 
             } else if (input.commodity == "" && input.reporter != "" && input.partner != "") {
@@ -138,6 +140,7 @@ function grpahCreation(val1,val2){
                 console.log(selectionData.selectedYear);
                 
                 console.log('generating globe for case3');
+                drawPiegrph(countryCommodities, countryValues, 1);
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
 //                if(countryCommodities.length==0){
@@ -145,7 +148,7 @@ function grpahCreation(val1,val2){
 //                    return;
 //                }
                // alert(" commodties : "+countryCommodities+"  value "+countryValues);
-                drawPiegrph(countryCommodities, countryValues, 1);
+                
                 // document.getElementById("m").style.visibility = "hidden";
 
                 //alert(array.length);
@@ -299,10 +302,11 @@ function grpahCreation(val1,val2){
                 var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
                 var selectedCommodity = input.commodity;
                 console.log('generating globe for case2');
+                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Imports Trends "+input.reporter+" -> "+input.partner,val1,val2);
                 imade(selectionData.selectedYear, [input.reporter], [selectedCommodity], allCommodities);
                 // selectedCountry = input.reporter;
                 // console.log(selectedCountry.summary.imported.total);
-                drawbargrph(allYrs, selectedCommodity, yearsvalue,"Historical Imports Trends "+input.reporter+" -> "+input.partner,val1,val2);
+                
                 // document.getElementById("piechart").style.visibility = "hidden";
 
 
@@ -328,13 +332,14 @@ function grpahCreation(val1,val2){
                 console.log(selectionData.selectedYear);
                 var allCommodities = ['Coffee', 'Copper', 'Corn', 'Cotton', 'Crude Oil', 'Gold', 'Silver', 'Sugar', 'Wheat'];
                 console.log('generating globe for case3');
+                drawPiegrph(countryCommodities, countryValues, 1);
                 imade(selectionData.selectedYear, [input.reporter], allCommodities, allCommodities);
                 console.log(countryValues);
 //                if(countryCommodities.length==0){
 //                    alert(" no commodity is traded between the countries");
 //                    return;
 //                }
-                drawPiegrph(countryCommodities, countryValues, 1);
+                
                 //alert(array.length);
 
             } else if (input.commodity == "" && input.reporter != "" && input.partner == "") {
