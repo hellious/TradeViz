@@ -202,7 +202,7 @@ z-index: 99;">
         </div>
         <div id="mainCont" class="container">
             <canvas class="col-md-3" style="max-height: 40rem;max-width: 40rem;margin-left: -5rem;margin-top:11rem; z-index:9" id="m"></canvas>
-            <canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>
+            <canvas class="col-md-3 pull-left" style="max-height: 30rem;max-width: 30rem;margin-left: -20rem;margin-top:20rem;z-index:9 " id="piechart"></canvas>
             <canvas class="col-md-3 pull-right" style="max-height: 20rem;max-width: 20rem;margin-left: 10rem;margin-top:11rem; z-index:9" id="doughnut"></canvas>
         </div>
         <!-- <div id="m" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
@@ -322,8 +322,8 @@ z-index: 99;">
                     #chart svg {
                         height: 600px;
                         width: 600px;
-                        padding-left: 30px;
-                        font-size: 16px;
+                        padding-left: 40px;
+                        font-size: 18px;
                         font-family: 'Roboto';
                         fill : rgba(20, 100, 150, 1); 
                     } 
@@ -407,7 +407,7 @@ z-index: 99;">
 
                 /* Create the chart */
                 var chart = circularHeatChart()
-                    .segmentHeight(17)
+                    .segmentHeight(18)
                     .innerRadius(15)
                     .numSegments(10)
                     .domain([min, max])
@@ -513,6 +513,7 @@ z-index: 99;">
             </script>
             <script type="text/javascript">
             function drawPiegrph(labels, data, alfa) {
+               
 //                var pieChartContent = document.getElementById('mainCont');
 //                pieChartContent.innerHTML = '&nbsp;';
 //                $('#mainCont').append('<canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 25rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>');
@@ -547,16 +548,23 @@ z-index: 99;">
                             backgroundColor: bg_color,
                             data: data // [12, 19, 3, 17, 28, 24, 7]
                         }]
-
-
                     },
                     options: {
                         legend: {
+//                            labels: {
+//                                padding: 20
+//                              },
                             display: true
                         },
                         tooltips: {
                             enabled: true
-                        }
+                        },
+                        title: {
+                                    display: true,
+                                    fontSize: 15,
+                                    fontColor: "rgb(255, 255, 255,0.6)",
+                                    text: 'Commodities exported from '+document.getElementById("reporter").value+" to "+document.getElementById("partner").value
+                                }
                     }
                 });
 
