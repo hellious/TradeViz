@@ -11,9 +11,17 @@ function displayFormData() {
     inObj.commodity = document.getElementById("commodity").value;
     inObj.reporter = document.getElementById("reporter").value;
     inObj.partner = document.getElementById("partner").value;
-    if(inObj.reporter == inObj.partner){
+    if(inObj.reporter == inObj.partner && inObj.reporter != "" ){
         alert("Please select different countries");
         return;
+    }
+    if(inObj.direction == ""){
+        alert("Please select the direction option");
+        return;
+    }
+    if(inObj.reporter== "" && inObj.partner =="" && inObj.commodity == ""){
+        alert("Please select commodity or country for analysing trade");
+        return;   
     }
 
     var msg = "Direction: " + document.getElementById("direction").value + "\nCommodity: " + document.getElementById("commodity").value + "\n Importer: " + document.getElementById("reporter").value + "\n Exporter: " + document.getElementById("partner").value;
