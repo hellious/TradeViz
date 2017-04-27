@@ -136,6 +136,7 @@ z-index: 99;">
     </div>
     <!-- graph  -->
     <div class="sigma-expand" id="sigma-canvas">
+	<div style="margin-top:2rem;margin-left:15rem;color:#999;font-decoration:bold;">Country Trade Network</div>
         <style type="text/css">
         #sigma_edges_1,
         #sigma_nodes_1,
@@ -188,10 +189,10 @@ z-index: 99;">
         <i class="fa fa-square" style="color: rgba(0,202,255,0.6)" aria-hidden="true">'13</i>
         <i class="fa fa-square" style="color:rgba(198,134,233,0.6) " aria-hidden="true">'14</i>
         <i class="fa fa-square" style="color:rgba(46,144,114,0.6)" aria-hidden="true">'15</i>
-        <i class="fa fa-square" style="color:rgba(255,51,69,0.6)" aria-hidden="true">Destination</i>
+        <!--<i class="fa fa-square" style="color:rgba(255,51,69,0.6)" aria-hidden="true">Destination</i>-->
         <div class="z" style="margin-top: 2rem;" rel="in"></div>
-        <div class="z" rel="out"></div>
-        <div class="z" rel="center"></div>
+        <div class="z"  style="margin-top: 2rem;" rel="out"></div>
+        <div class="z"   style="margin-top: 2rem;" rel="center"></div>
     </div>
     <!-- graph end -->
     <!--  <div style="margin-bottom: 5rem;"></div> -->
@@ -202,7 +203,7 @@ z-index: 99;">
         </div>
         <div id="mainCont" class="container">
             <canvas class="col-md-3" style="max-height: 40rem;max-width: 40rem;margin-left: -5rem;margin-top:11rem; z-index:9" id="m"></canvas>
-            <canvas class="col-md-3 pull-left" style="max-height: 30rem;max-width: 30rem;margin-left: -20rem;margin-top:20rem;z-index:9 " id="piechart"></canvas>
+            <canvas class="col-md-3 pull-left" style="max-height: 25rem;max-width: 30rem;margin-left: -20rem;margin-top:10rem;z-index:9 " id="piechart"></canvas>
             <canvas class="col-md-3 pull-right" style="max-height: 20rem;max-width: 20rem;margin-left: 10rem;margin-top:11rem; z-index:9" id="doughnut"></canvas>
         </div>
         <!-- <div id="m" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
@@ -323,9 +324,9 @@ z-index: 99;">
                         height: 600px;
                         width: 600px;
                         padding-left: 40px;
-                        font-size: 18px;
+                        font-size: 20px;
                         font-family: 'Roboto';
-                        fill : rgba(20, 100, 150, 1); 
+                        fill : rgb(31, 63, 37, 1); 
                     } 
                     </style>
                     <div id="chart svg">
@@ -397,6 +398,12 @@ z-index: 99;">
             <script type="text/javascript" src="geo-explorer.js"></script>
             <script type="text/javascript">
             function drawSpiralHeatMap(historyData,max,min) {
+				if(chart_com != null){
+					chart_com.destroy();
+				}
+				if(chart_don != null){
+					chart_don.destroy();
+				}
                // alert("max and mind : "+max+" , "+min);
                 var com = document.getElementById("commodity").value;
                 var dir = document.getElementById("direction").value;
@@ -411,7 +418,7 @@ z-index: 99;">
                     .innerRadius(15)
                     .numSegments(10)
                     .domain([min, max])
-                    .range(['rgba(250, 170, 175,0.7)', 'rgba(250, 250, 250,0.7)'])
+                    .range(['rgb(105, 183, 221,0.7)', 'rgba(255, 255, 255,1)'])
                     .segmentLabels(countries)
                     .radialLabels(years);
 
@@ -458,7 +465,7 @@ z-index: 99;">
                                 display: true,
                                 fontSize: 15,
                                 fontColor: "rgb(255, 255, 255,0.6)",
-                                labelString: 'NetValue'
+                                labelString: 'NetValue in $'
                               }
                             }],
                             xAxes: [{
